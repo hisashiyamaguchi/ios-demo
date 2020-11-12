@@ -1,0 +1,24 @@
+PODS:
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
+  - JWTDecode (2.4.1)
+
+DEPENDENCIES:
+  - AppAuth
+  - JWTDecode
+
+SPEC REPOS:
+  trunk:
+    - AppAuth
+    - JWTDecode
+
+SPEC CHECKSUMS:
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
+
+PODFILE CHECKSUM: 13b2440087621b24c6d8a9be803534dc24af0651
+
+COCOAPODS: 1.9.3
