@@ -33,7 +33,7 @@ Here comes a sample request body of the API endpoint.
     ],
     "loginPolicy": "0fabeaa7-6113-4ae2-8ffa-94884274db25",
     "tokenPolicy": "ecef069a-026a-4771-89ba-83514edfa81b",
-    "type": "confidential"
+    "type": "public"
 }
 ```
 ## Open Xcode workspace
