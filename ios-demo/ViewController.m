@@ -12,10 +12,10 @@
 #import <JWTDecode-Swift.h>
 #import <AuthenticationServices/AuthenticationServices.h>
 
-#define kClientID @"fd8e2b48-b710-43e7-b30b-5b9b4fba0e73"
-#define kAuthEndpoint @"https://v1.api.us.janrain.com/e0fe87a8-5911-4ea2-a2ea-9e98d2cf9805/login/authorize"
-#define kTokenEndpoint @"https://v1.api.us.janrain.com/e0fe87a8-5911-4ea2-a2ea-9e98d2cf9805/login/token"
-#define kLogoutEndpoint @"https://v1.api.us.janrain.com/e0fe87a8-5911-4ea2-a2ea-9e98d2cf9805/auth-ui/logout?client_id=fd8e2b48-b710-43e7-b30b-5b9b4fba0e73&redirect_uri=aic-demo://auth-callback"
+#define kClientID @"xxxx"
+#define kAuthEndpoint @"https://v1.api.tk.janrain.com/xxxx/login/authorize"
+#define kTokenEndpoint @"https://v1.api.tk.janrain.com/xxxx/login/token"
+#define kLogoutEndpoint @"https://v1.api.tk.janrain.com/xxxx/auth-ui/logout?client_id=xxxx&redirect_uri=aic-demo://auth-callback"
 #define kRedirectURI @"aic-demo://auth-callback"
 
 @interface ViewController () <ASWebAuthenticationPresentationContextProviding>

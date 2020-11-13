@@ -1,29 +1,31 @@
-# Akamai Identity Cloud Hosted Login iOS super simple demo
-This sample demonstrates how Akamai Identity Cloud should be integrated with iOS application.
-
-![alt text](./hostedLogin_iphone.png "Hosted Login Example")
+# Akamai Identity Cloud Hosted Login iOS サンプル
+Akamai Identity Cloud Hosted Login iOSのサンプルです。
+<div align="center">
+<img src="./hostedLogin_iphone.png" width=50%>
+</div>
 <br>
 <br>
 
 
-# Prerequisites
-- Basic hands-on experience of Akamai Identity Cloud Hosted Login
-- Mac or Windows PC
+# 前提条件
+事前に下記をご準備頂きたくお願い致します。
+- Mac Book
 - Postman
 - Xcode
-- Akamai Identity Cloud Hosted Login Instance
+- iTerm2
+- Akamai Identity Cloud Hosted Loginインスタンス
 
-**You must contact Akamai CSA to deploy the instance.**
+**Hosted Loginのインスタンス払い出しはAkamaiの担当にコンタクト頂きたくお願い致します。**
 <br>
 <br>
 
 
-# OIDC Client Set-up
-## Create Public Client
-Create a OIDC Public Client with Postman. See the document here for reference.
+# Hosted Login OIDC Clientのセットアップ
+## Public Clientの作成
+Postmanを利用してAkamai Identity CloudのAPIにリクエストを送信してPublic Clientを作成します。詳細は下記をご参照お願いします。
 https://identitydocs.akamai.com/home/configcustomer-idclients
 
-Here comes a sample request body of the API endpoint.
+サンプルのリクエストパラメータです。こちらのサンプルでは"aic-demo://auth-callback"と言う名前のカスタムスキームを利用しているため、こちらのカスタムスキームをOAuthのRedirect URIとして指定しています。
 
 ```json
 {
@@ -36,41 +38,71 @@ Here comes a sample request body of the API endpoint.
     "type": "public"
 }
 ```
-## Open Xcode workspace
-Go your terminal and open the workspace.
+<br>
+
+## Xcodeの起動
+iTerm2からXcodeを起動します。
 ```terminal
 $ open ios-demo.xcworkspace
 ```
-## Modify ViewController.m
-All you need to modify is just 4 parameters of OIDC. Find out the parameters that you should set on Janrian Console or Postman.
+<br>
+
+## ViewController.mの修正
+必要な作業は4つの変数を修正するだけです。値はJanrian ConsoleもしくはPostmanで取得できます。
 
 ```swift
 #define kClientID @"xxxx"
-#define kAuthEndpoint @"https://v1.api.us.janrain.com/<customerID>/login/authorize"
-#define kTokenEndpoint @"https://v1.api.us.janrain.com/<customerID>//login/token"
-#define kLogoutEndpoint @"https://v1.api.us.janrain.com/<customerID>//auth-ui/logout?client_id=<clientID>&redirect_uri=aic-demo://auth-callback"
+#define kAuthEndpoint @"https://v1.api.tk.janrain.com/<customerID>/login/authorize"
+#define kTokenEndpoint @"https://v1.api.tk.janrain.com/<customerID>//login/token"
+#define kLogoutEndpoint @"https://v1.api.tk.janrain.com/<customerID>//auth-ui/logout?client_id=<clientID>&redirect_uri=aic-demo://auth-callback"
 ```
 
-![alt text](./xcode.jpg "Xcode")
-
-**You must contact Akamai CSA if you are not clear how you can find the parameters.**
-<br>
-<br>
-
-
-# Build & Try
-Select "ios-demo" on the top bar of Xcode, and set your favorit simulator.
-<br>
-![alt text](./xcode_simulator.jpg "Xcode Simulator")
+kClientIDはJanrain Consoleの左ペイン"MANAGE PROPERTIES"->"該当のPublic Client"->"janrainOidcClientId"の設定値です。
+<div align="center">
+<img src="./client_id.jpg" width=50%>
+</div>
 <br>
 
-Build & try
-Push build button and try!
-<br>
-![alt text](./xcode_build_try.jpg "Xcode Build & Try")
+customerIDはJanrain Consoleの左ペイン"MANAGE APPLICATION"->"customer_id"の設定値です。
+<div align="center">
+<img src="./customer_id.jpg" width=50%>
+</div>
 <br>
 <br>
 
 
-# Issue Reporting
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker.
+# 動作テスト
+Xcodeのトップバーで"ios-demo"を選択してお好きなSimulatorを選択します。
+<div align="center">
+<img src="./xcode_simulator.jpg" width=50%>
+</div>
+<br>
+
+ビルドボタンを押してSimulatorを起動します。
+<div align="center">
+<img src="./xcode_build_try.jpg" width=50%>
+</div>
+<br>
+
+Simulatorで"login"をクリックしてポップアップで"Continue"を押します。
+<div align="center">
+<img src="./simulator.jpg" width=50%>
+</div>
+<br>
+
+"Sign-up for an account"を押します。
+<div align="center">
+<img src="./hl_sign_up.jpg" width=50%>
+</div>
+<br>
+
+Email, Passwordを入力して"Create Account"を押します。
+<div align="center">
+<img src="./hl_create_account.jpg" width=50%>
+</div>
+<br>
+
+Hosted Loginが払い出したTokenが表示されれば成功です。
+<div align="center">
+<img src="./logged_in.jpg" width=50%>
+</div>
